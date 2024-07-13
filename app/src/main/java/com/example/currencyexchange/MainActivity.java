@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         textView_from = findViewById(R.id.from_edittext);
         textView_to = findViewById(R.id.to_edittext);
         Amount_to_converted.setText(String.valueOf(1.0));
-
+        defalt(adapter,adapter1,spinner_from,spinner_to);
 
         RetrofitInstance.getInstance().currencyApiService.getLatestExchangeRates().enqueue(new Callback<modelclass>() {
             @Override
@@ -169,6 +169,15 @@ public class MainActivity extends AppCompatActivity {
         converted_amount.setText(String.valueOf(cal));
 
 
+
+    }
+    public void defalt(ArrayAdapter<CharSequence> adapter,ArrayAdapter<CharSequence> adapter1,Spinner s1,Spinner s2)
+    {
+        int spinnerposition=adapter.getPosition("USD");
+        s1.setSelection(spinnerposition);
+
+        spinnerposition=adapter1.getPosition("INR");
+        s2.setSelection(spinnerposition);
 
     }
 }

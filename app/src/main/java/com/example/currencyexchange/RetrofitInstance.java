@@ -12,12 +12,10 @@ public class RetrofitInstance {
     CurrencyApiService currencyApiService;
     public  RetrofitInstance()
     {
-
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
        currencyApiService= retrofit.create(CurrencyApiService.class);
     }
     public static RetrofitInstance getInstance()
